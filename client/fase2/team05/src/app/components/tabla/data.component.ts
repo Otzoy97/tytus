@@ -44,19 +44,40 @@ export class DataComponent implements OnInit, OnDestroy {
 
   // tslint:disable-next-line:typedef
   refresh(){
-
+    console.log(this.message.result);
+    this.anuncio = '';
     // tslint:disable-next-line:triple-equals
     if (this.message.result.messages.length > 0){
-      this.anuncio = this.message.result.messages[0];
+      let comodin = '';
+      // tslint:disable-next-line:only-arrow-functions typedef
+      this.message.result.messages.forEach(function(elemento, indice, array) {
+        comodin += elemento + '\n';
+      });
+      this.anuncio = comodin;
       // tslint:disable-next-line:triple-equals
     }else if (this.message.result.lexical.length > 0){
-      this.anuncio = this.message.result.lexical[0];
+      let comodin = '';
+      // tslint:disable-next-line:only-arrow-functions typedef
+      this.message.result.lexical.forEach(function(elemento, indice, array) {
+        comodin += elemento + '\n';
+      });
+      this.anuncio = comodin;
       // tslint:disable-next-line:triple-equals
     }else if (this.message.result.postgres.length > 0){
-      this.anuncio = this.message.result.postgres[0];
+      let comodin = '';
+      // tslint:disable-next-line:only-arrow-functions typedef
+      this.message.result.postgres.forEach(function(elemento, indice, array) {
+        comodin += elemento + '\n';
+      });
+      this.anuncio = comodin;
       // tslint:disable-next-line:triple-equals
     }else if (this.message.result.semantic.length > 0){
-      this.anuncio = this.message.result.semantic[0];
+      let comodin = '';
+      // tslint:disable-next-line:only-arrow-functions typedef
+      this.message.result.semantic.forEach(function(elemento, indice, array) {
+        comodin += elemento + '\n';
+      });
+      this.anuncio = comodin;
       // tslint:disable-next-line:triple-equals
     }
 
